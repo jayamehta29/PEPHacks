@@ -1,12 +1,13 @@
 const puppeteer = require("puppeteer");
+const fs = require("fs");
 // let challenges = require("./challenges");
 
 let id = "kareb38160@astarmax.com";
 let pass = "qwerty1234";
 let tab;
 
-let dest = "Janakpuri, New Delhi, Delhi";
-let src = "Sonipat";
+let dest = "Hari Nagar";
+let src = "Janakpuri";
 
 (async function(){
     let browser = await puppeteer.launch({ 
@@ -34,7 +35,27 @@ let src = "Sonipat";
     await tab.waitForTimeout(2000);
     await tab.click(".section-directions-trip-details-link.noprint.mapsConsumerUiCommonButton__blue-button-text");
     console.log("directions opened");
-    let alldivs = await tab.$$(".numbered-step-content");
-    
+    await tab.waitForSelector('.directions-mode-step-summary .numbered-step-content' , {visible:true});
+    await tab.waitForTimeout(2000);
+    let dirn = await tab.$$(".directions-mode-step-summary .numbered-step-content");
+    let directions = [];
+    let text;
+    for(let i=0;i<dirn.length;i++){
+        text = await tab.evaluate(function(elem){ return elem.textContent},dirn[i]);
+        // let sl = speedlimit(text);
+        await tab.waitForTimeout(2000);
+        directions.push(text);
+       
+        await tab.waitForTimeout(2000);
+        console.log(text); 
+    }
+    fs.writeFileSync('./directions.js', JSON.stringify(directions, null, 2));
+    await tab.waitForTimeout(5000);
+    await browser.close();
+
 })();
+
+// async function speedlimit(text){
+    
+// }
 // tab.evaluate( function(elem){ return elem.getAttribute("href");  }  ,  createChallengeBtn);
