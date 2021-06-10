@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tools-content">
+      <div class="tools">
+        <div class="tool" id="pencil">
+            <img src="./icons/Black_Pencil.svg" alt="" />
+            <div class="tool-options hide">
+                <div class="pencil-size">
+                    <input type="range" value="1" min="1"  max="40">
+                </div>
+                <div class="pencil-colors">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="blue"></div>
+                    <div class="black"></div>
+                </div>
+            </div>       
+        </div>
+        <div class="tool" id="eraser">
+            <img src="./icons/Eraser.svg" alt="" />
+            <div class="tool-options hide">
+                <div class="eraser-size">
+                    <input type="range" value="1" min="1"  max="40">
+                </div>
+            </div>    
+        </div>
+        <div class="tool" id="undo"><img src="./icons/Undo.svg" alt="" /></div>
+        <div class="tool" id="redo"><img src="./icons/Redo.svg" alt="" /></div>
+        <div class="tool" id="sticky"><img src="./icons/StickyNote.svg" alt="" /></div>
+        <div class="tool" id="photo">
+          <img src="./icons/Photo.svg" alt="" />
+          <input type="file" id="photo-upload" class="hide">
+        </div>
+        <div class="tool" id="download"><img src="./icons/Download.svg" alt="" /></div>
+        <div class="tool" id="trash"><img src="./icons/trash.svg" alt=""/></div>
+      </div>
+    </div>
+    <div class="canvas-content">
+      <!-- <div class="ticket">
+        <div class="ticket-heading" contenteditable="true"></div>
+        <div class="ticket-content" contenteditable="true"></div>
+    </div> -->
+      <canvas id="canvas"></canvas>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./tools.js"></script>
+    <script src="./undoRedo.js"></script>
+    <script src="./sticky.js"></script>
+    <script src="./img.js"></script>
+  </body>
+</html>

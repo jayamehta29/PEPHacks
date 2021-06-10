@@ -6,8 +6,8 @@ let id = "kareb38160@astarmax.com";
 let pass = "qwerty1234";
 let tab;
 
-let dest = "Hari Nagar";
-let src = "Janakpuri";
+let dest = "Janakpuri";
+let src = "Sonipat";
 
 (async function(){
     let browser = await puppeteer.launch({ 
@@ -35,6 +35,7 @@ let src = "Janakpuri";
     await tab.waitForTimeout(2000);
     await tab.click(".section-directions-trip-details-link.noprint.mapsConsumerUiCommonButton__blue-button-text");
     console.log("directions opened");
+
     await tab.waitForSelector('.directions-mode-step-summary .numbered-step-content' , {visible:true});
     await tab.waitForTimeout(2000);
     let dirn = await tab.$$(".directions-mode-step-summary .numbered-step-content");

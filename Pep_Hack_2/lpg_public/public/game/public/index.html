@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="whole">
+      <div class="leftspace">
+        <div class="tools-content">
+          <div class="tools">
+            <div class="tool" id="pencil">
+                <img src="./icons/Black_Pencil.svg" alt="" />
+                <div class="tool-options hide">
+                    <div class="pencil-size">
+                        <input type="range" value="1" min="1"  max="40">
+                    </div>
+                    <div class="pencil-colors">
+                        <div class="red"></div>
+                        <div class="yellow"></div>
+                        <div class="blue"></div>
+                        <div class="black"></div>
+                    </div>
+                </div>       
+            </div>
+            <div class="tool" id="eraser">
+                <img src="./icons/Eraser.svg" alt="" />
+                <div class="tool-options hide">
+                    <div class="eraser-size">
+                        <input type="range" value="1" min="1"  max="40">
+                    </div>
+                </div>    
+            </div>
+            <div class="tool" id="trash"><img src="./icons/trash.svg" alt=""/></div>
+            <div class="tool" id="paint"><img src="./icons/paint.svg" alt=""/>
+              <div class="tool-options hide">
+                <div class="paint-colors">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="blue"></div>
+                    <div class="black"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="canvas-content">
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      <div class="rightspace">
+        <div class="chat-container">
+          <div class="right-view">
+              <div class="chat-window">
+              </div>
+              <div class="chat-input-box">
+                  <input type="text" class="chat-input">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="me">
+      <div class="user-name"></div>
+  </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script>
+        const socket = io();
+    </script>
+
+  
+    <script src="./script.js"></script>
+    <script src="chat.js"></script>
+    <script src="./tools.js"></script>
+    <script src="./socket.js"></script>
+    <script src="./redraw.js"></script>
+    
+  </body>
+</html>
