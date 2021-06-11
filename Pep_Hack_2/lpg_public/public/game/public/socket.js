@@ -23,7 +23,7 @@ socket.on("join" , function(username){
     let joinDiv = document.createElement("div");
     joinDiv.classList.add("chat");
     joinDiv.classList.add("join");
-    joinDiv.textContent = `${username} joined chat`;
+    joinDiv.textContent = `${username} joined`;
     chatWindow.append(joinDiv);
 })
 
@@ -33,7 +33,7 @@ socket.on("leave" , function(dataObj){
     let leaveDiv = document.createElement("div");
     leaveDiv.classList.add("chat");
     leaveDiv.classList.add("leave");
-    leaveDiv.textContent = `${nm} left chat`;
+    leaveDiv.textContent = `${nm} left`;
     chatWindow.append(leaveDiv);
 })
 
@@ -43,4 +43,11 @@ socket.on("chatLeft" , function(chatObj){
     chatDiv.classList.add("left");
     chatDiv.textContent = chatObj.username+ " : " +chatObj.chat;
     chatWindow.append(chatDiv);
+})
+
+socket.on("cl",function(c){
+    console.log(c);
+    ctx.fillStyle=c;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
 })

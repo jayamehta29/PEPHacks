@@ -45,3 +45,11 @@ socket.on("chatLeft" , function(chatObj){
     chatDiv.textContent = chatObj.username+ " : " +chatObj.chat;
     chatWindow.append(chatDiv);
 })
+// console.log("aaaaaaaaaaaaa");
+socket.on("cl",function(c){
+    console.log(c);
+    ctx.fillStyle=c;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    
+})
+

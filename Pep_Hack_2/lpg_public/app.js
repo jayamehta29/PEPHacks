@@ -16,9 +16,15 @@ io.on("connection", function(socket){
         userObject = { id: socket.id , userName : username};
         userList.push(userObject);
         // console.log(userList);
+        console.log(socket.id)
         socket.broadcast.emit("join" , username);
+
     })
-    
+    socket.on("fill",function(colorname){
+        console.log(colorname);
+        // socket.broadcast.emit("chatLeft" , "chatObj");
+        socket.broadcast.emit("cl",colorname);
+    })
     socket.on("mousedown",function(pointObject){
         // io.emit("md",pointObject);
         socket.broadcast.emit("md",pointObject);
@@ -35,6 +41,8 @@ io.on("connection", function(socket){
     socket.on("chat" , function(chatObj){
         socket.broadcast.emit("chatLeft" , chatObj);
     })
+
+    
 
     socket.on("disconnect" , function(){
         console.log("user disconnected!!");

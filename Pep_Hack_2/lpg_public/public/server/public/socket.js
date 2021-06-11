@@ -16,13 +16,13 @@ socket.on("cl",function(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-socket.on("undoLine",function(line){
-   console.log(line);
+// socket.on("undoLine",function(line){
+//    console.log(line);
    
     
-});
+// });
 
-socket.on("redoLine",function(line){
+// socket.on("redoLine",function(line){
     
     
-});
+// });

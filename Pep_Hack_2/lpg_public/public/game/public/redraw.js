@@ -13,11 +13,10 @@ function redrawLine(){
                 ctx.beginPath();
                 ctx.moveTo(pointObject.x , pointObject.y);
             }
-            else{
+            else if(pointObject.type=="mm"){
                 ctx.lineTo(pointObject.x , pointObject.y);
                 ctx.stroke();
             }
-
         }
     }
 }

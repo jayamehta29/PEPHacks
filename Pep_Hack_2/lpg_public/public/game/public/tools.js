@@ -11,7 +11,7 @@ let pencilSizeInput = pencil.querySelector("input");
 let eraserSizeInput = eraser.querySelector("input");
 
 let pencilColors = pencil.querySelectorAll(".pencil-colors div");
-let paintColors = pencil.querySelectorAll(".paint-colors div");
+let paintColors = document.querySelectorAll(".paint-colors div");
 
 
 let activeTool = "pencil";
@@ -88,19 +88,19 @@ trashbtn.addEventListener("click", function(){
     socket.emit("clear");
 })
 
-//paintoptions
-for(let i=0 ; i<paintColors.length ; i++){
-    paintColors[i].addEventListener("click" , function(e){
-        let selectedPaint = e.target.className;
-        // ctx.beginPath();
-        ctx.fillStyle = selectedPaint;;
-        // ctx.fill(0, 0, canvas.width, canvas.height);
+// //paintoptions
+// for(let i=0 ; i<paintColors.length ; i++){
+//     paintColors[i].addEventListener("click" , function(e){
+//         let selectedPaint = e.target.className;
+//         // ctx.beginPath();
+//         ctx.fillStyle = selectedPaint;;
+//         // ctx.fill(0, 0, canvas.width, canvas.height);
         
-        // ctx.fillRect(0, 0, canvas.width, canvas.height);
-        currentPaint = selectedPaint;
+//         // ctx.fillRect(0, 0, canvas.width, canvas.height);
+//         currentPaint = selectedPaint;
         
-    })
-}
+//     })
+// }
 
 paintbtn.addEventListener("click",function(){
     if(activeTool = "paintbtn"){
@@ -114,9 +114,6 @@ paintbtn.addEventListener("click",function(){
         }
     }else{
         activeTool="paintbtn";
-        ctx.fillStyle = currentPaint;
-        ctx.fill(currentPaint);
-        // ctx.fillRect(0, 0, canvas.width, canvas.height);
         paintoptions.classList.add("hide");
     }
     
@@ -124,3 +121,14 @@ paintbtn.addEventListener("click",function(){
 
     // eraserOptions.classList.add("hide");
 })
+console.log(paintColors.length)
+for(let i=0 ; i<paintColors.length ; i++){
+    paintColors[i].addEventListener("click" , function(e){
+        console.log("obh")
+        let selectedPaintColor = e.target.className;
+        ctx.fillStyle = selectedPaintColor;
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        socket.emit("fill",selectedPaintColor);
+        currentPaint=selectedPaintColor
+    })
+}
