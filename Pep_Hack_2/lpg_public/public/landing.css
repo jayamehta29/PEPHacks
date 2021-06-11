@@ -50,7 +50,7 @@ text {
     position: absolute;
     top: 44%;
     left: 9%;
-    /* height: 1000px; */
+    cursor: pointer;
 }
 
 .whiteboard {
@@ -148,4 +148,102 @@ text {
     width: 160px;
     margin-left: 23%;
     margin-top: 14%;
+}
+
+.rightspace {
+    width: 50%;
+    margin-left: 39px;
+    /* padding: 60px; */
+}
+
+.chat-container {
+    height: 100vh;
+    /* display: flex; */
+    /* background: lightgray; */
+    width: 137%;
+}
+
+.right-view {
+    width: 75%;
+    height: 100%;
+    background: aliceblue;
+}
+
+.chat-window {
+    height: 90%;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.chat {
+    color: black;
+    min-height: 30px;
+    border-radius: 10px;
+    padding: 6px;
+    margin-top: 15px;
+    width: 233px;
+    clear: both;
+    word-break: break-all;
+    /* border: 1px solid grey; */
+    margin-right: 30;
+    margin-left: 5px;
+}
+
+.left {
+    background: lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right: 62px;
+}
+
+.join {
+    /* background: #3498db; */
+    /* width: 77%; */
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3498db;
+}
+
+.leave {
+    /* background: #e74c3c; */
+    /* width: 80%; */
+    margin: auto;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+.chat-input-box {
+    height: 10%;
+    background: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-top: 1px solid lightgray; */
+}
+
+.chat-input-box input {
+    color: black;
+    height: 60%;
+    width: 80%;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 15px;
+    /* font-size: 1.2rem; */
+    padding: 10px;
+    background: white;
+    /* color: white; */
 }

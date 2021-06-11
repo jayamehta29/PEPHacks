@@ -16,6 +16,7 @@ io.on("connection", function(socket){
         userObject = { id: socket.id , userName : username};
         userList.push(userObject);
         // console.log(userList);
+        socket.broadcast.emit("join" , username);
     })
     
     socket.on("mousedown",function(pointObject){
@@ -30,6 +31,25 @@ io.on("connection", function(socket){
     socket.on("clear",function(){
         socket.broadcast.emit("cl");
     });
+
+    socket.on("chat" , function(chatObj){
+        socket.broadcast.emit("chatLeft" , chatObj);
+    })
+
+    socket.on("disconnect" , function(){
+        console.log("user disconnected!!");
+        let leftUserObj;
+        let remainingUsers = userList.filter(function(userObj){
+            if(userObj.id == socket.id){
+                leftUserObj = userObj;
+                console.log(leftUserObj);
+                socket.broadcast.emit("leave" , leftUserObj);
+                return false;
+            }
+            return true;
+        })
+        userList = remainingUsers;
+    })
 })
 
 server.listen(3000, function(){
