@@ -33,6 +33,6 @@ io.on("connection", function(socket){
 })
 
 server.listen(3000, function(){
-    console.log("Server started");
+    console.log("Server started 3000");
 })
 

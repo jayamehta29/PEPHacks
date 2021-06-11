@@ -25,7 +25,7 @@ let username = prompt("Enter Your Name ");
 let isMouseDown = false;
 socket.emit("userConnected", username);
 let onlineList = document.querySelector(".online-list");
-console.log(onlineList);
+// console.log(onlineList);
 
 canvas.addEventListener("mousedown" , function(e){
     if(redoDB.length){
